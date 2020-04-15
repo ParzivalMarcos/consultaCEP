@@ -12,26 +12,27 @@
     </header>
     <main>
         <input type="number" id="cep" placeholder="Insira seu CEP">
-        <input type="button" value="Consultar" id="buscar">
+        <input type="button" value="Consultar" id="buscar"><br><br>
         <section class="endereco">
-            <label for="logradouro">
-                <div id="logradouro">logradouro:</div>
-            </label>
-            <label for="complemento">
-                <div id="complemento">complemento:</div>
-            </label>
-            <label for="bairro">
-                <div id="bairro">bairro:</div>
-            </label>
-            <label for="localidade">
-                <div id="localidade">localidade:</div>
-            </label>
-            <label for="uf">
-                <div id="uf">uf:</div>
-            </label>
+            <label>Rua: 
+                <input class="campo-endereco" id="logradouro"></input>
+            </label><br>
+            <label>Complemento: 
+                <input class="campo-endereco" id="complemento"></input>
+            </label><br>
+            <label>Bairro:
+                <input class="campo-endereco" id="bairro"></input>
+            </label><br>
+            <label>Localidade:
+                <input class="campo-endereco" id="localidade"></input>            
+            </label><br>
+            <label>UF:
+                <input class="campo-endereco" id="uf"></input>
+            </label><br>
         </section>
+        <br><br>
+        <div id="endereco-completo"></div>
     </main>
-    <footer></footer>
     <script src="app.js"></script>
 </body>
 </html>
