@@ -26,10 +26,17 @@ function consultaApi(cep){
     xhr.addEventListener("load", function(){
             var resposta = xhr.responseText
             var dado = JSON.parse(resposta)
-            adicionaDadosNaSection(dado)
-            adicionaEnderecoCompleto(dado)
-    })
-    xhr.send()
+            validaDado(dado)
+        })
+        xhr.send()
+    }
+    
+    function validaDado(dado){
+        console.log(dado)
+        // Realizar validação do objeto retornado e chamar as funções para adiconar os dados
+
+        adicionaDadosNaSection(dado)
+        adicionaEnderecoCompleto(dado)
 }
 
 function adicionaDadosNaSection(dado){
