@@ -1,7 +1,15 @@
 // https://viacep.com.br/ws/04888100/json/
 var cep = document.querySelector("#cep")
 var botao = document.querySelector("#buscar")
+var limpar = document.querySelector("#limpar")
 
+var campoLogradouro = document.querySelector("#logradouro")
+var campoComplemento = document.querySelector("#complemento")
+var campoBairro = document.querySelector("#bairro")
+var campoLocalidade = document.querySelector("#localidade")
+var campoUf = document.querySelector("#uf")
+
+var enderecoCompleto = document.querySelector("#endereco-completo")
 // cep.addEventListener("input", function(){
 //     cepDigitado = cep.value
 // })
@@ -25,12 +33,6 @@ function consultaApi(cep){
 }
 
 function adicionaDadosNaSection(dado){
-    var campoLogradouro = document.querySelector("#logradouro")
-    var campoComplemento = document.querySelector("#complemento")
-    var campoBairro = document.querySelector("#bairro")
-    var campoLocalidade = document.querySelector("#localidade")
-    var campoUf = document.querySelector("#uf")
-
     campoLogradouro.value = dado.logradouro
     campoComplemento.value = dado.complemento
     campoBairro.value = dado.bairro
@@ -39,6 +41,15 @@ function adicionaDadosNaSection(dado){
 }
 
 function adicionaEnderecoCompleto(dado){
-    var enderecoCompleto = document.querySelector("#endereco-completo")
     enderecoCompleto.textContent = `${dado.logradouro}, ${dado.bairro}, ${dado.localidade}, ${dado.uf}`
 }
+
+limpar.addEventListener("click", function(){
+    campoLogradouro.value = ""
+    campoComplemento.value = ""
+    campoBairro.value = ""
+    campoLocalidade.value = ""
+    campoUf.value = ""
+
+    enderecoCompleto.textContent = ""
+})
