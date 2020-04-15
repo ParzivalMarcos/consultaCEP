@@ -19,19 +19,26 @@ function consultaApi(cep){
             var resposta = xhr.responseText
             var dado = JSON.parse(resposta)
             adicionaDadosNaSection(dado)
+            adicionaEnderecoCompleto(dado)
     })
-
     xhr.send()
 }
 
 function adicionaDadosNaSection(dado){
     var campoLogradouro = document.querySelector("#logradouro")
+    var campoComplemento = document.querySelector("#complemento")
     var campoBairro = document.querySelector("#bairro")
     var campoLocalidade = document.querySelector("#localidade")
     var campoUf = document.querySelector("#uf")
 
-    campoLogradouro.textContent = dado.logradouro
-    campoBairro.textContent = dado.bairro
-    campoLocalidade.textContent = dado.localidade
-    campoUf.textContent = dado.uf
+    campoLogradouro.value = dado.logradouro
+    campoComplemento.value = dado.complemento
+    campoBairro.value = dado.bairro
+    campoLocalidade.value = dado.localidade
+    campoUf.value = dado.uf
+}
+
+function adicionaEnderecoCompleto(dado){
+    var enderecoCompleto = document.querySelector("#endereco-completo")
+    enderecoCompleto.textContent = `${dado.logradouro}, ${dado.bairro}, ${dado.localidade}, ${dado.uf}`
 }
